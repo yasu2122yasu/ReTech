@@ -1,23 +1,11 @@
 package main
 
-import (
-	"net/http"
-
-	"github.com/labstack/echo/v4"
-)
+import "fmt"
 
 func main() {
-	// Echo instance
-	e := echo.New()
+	prices := []int{98, 32, 32, 46, 14}
+	for i := 0; i < len(prices); i++ {
 
-	// Routes
-	e.GET("/", hello)
-
-	// Start server
-	e.Logger.Fatal(e.Start(":1323"))
-}
-
-// Handler
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
+		fmt.Printf("%d円¥n", prices[i])
+	}
 }
