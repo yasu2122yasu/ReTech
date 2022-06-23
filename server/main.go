@@ -3,13 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	prices := []int{32, 32, 32, 132, 432}
-	items := []string{"消しゴム", "物体", "ゴミ", "ノート", "鉛筆"}
-	sum := 0
+	scores := [][3]int{
+		{30, 23, 45}, {34, 45, 43}, {32, 53, 41},
+		{32, 32, 52}, {64, 14, 54}}
 
-	for i := 0; i < len(prices); i++ {
-		sum += prices[i]
-		fmt.Printf("%s: %d円｜小計： %d円\n", items[i], prices[i], sum)
+	for i := 0; i < len(scores); i++ {
+		sum := 0
+		for k := 0; k < 3; k++ {
+			sum += scores[i][k]
+		}
+		fmt.Printf("受験者%d: 平均値%d点\n", i+1, sum/3)
 	}
-	fmt.Printf("総計： %d円¥n", sum)
 }
