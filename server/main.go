@@ -3,15 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	thenum := 3927
-	fmt.Println(thenum)
+	pattern := [3]string{"グー", "チョキ", "パー"}
+	fmt.Println("勝敗リスト")
 
-	for n := 2; n < thenum; n++ {
-		if thenum%n == 0 {
-			thenum /= n
-			fmt.Printf("を%dで割ると、%d\n", n, thenum)
-		} else {
-			fmt.Println("割り切れません")
+	for me := 0; me < 3; me++ {
+		fmt.Printf("私が%sのとき:\n", pattern[me])
+
+		for you := 0; you < 3; you++ {
+			score := (3 + me - you) % 3
+
+			if score == 2 {
+				fmt.Printf("あなたが%sなら私の勝ち\n", pattern[you])
+			} else if score == 1 {
+				fmt.Printf("あなたが%sなら私の負け\n", pattern[you])
+			} else {
+				fmt.Printf("あなたが%sならあいこ\n", pattern[you])
+			}
 		}
+		fmt.Println()
 	}
 }
