@@ -2,18 +2,16 @@ package main
 
 import "fmt"
 
-func main() {
-	thenum := 4147
-
-	fmt.Println(thenum)
-	for n := 0; n < thenum; n++ {
-		switch {
-		case n == 0:
-		case n == 1:
-		case thenum%n == 0:
-			thenum /= n
-			fmt.Printf("を%dで割ると、%d\n", n, thenum)
-		default:
-		}
+func scoreavg(scores []int) int {
+	sum := 0
+	for i := 0; i < len(scores); i++ {
+		sum += scores[i]
 	}
+	return sum / len(scores)
+}
+
+func main() {
+	mathscores := []int{40, 45, 32, 24, 53, 61, 98}
+	fmt.Printf("%dによる数学試験の結果:\n", len(mathscores))
+	fmt.Printf("平均点 %d点\n", scoreavg(mathscores))
 }
